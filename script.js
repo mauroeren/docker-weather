@@ -1,22 +1,32 @@
 async function getWeather() {
     const cityName = document.getElementById("city").value;
 
-    // 1) Geocoding API
-    const geoRes = await fetch(`https://geocoding-api.open-meteo.com/v1/search?name=${cityName}`);
-    const geoData = await geoRes.json();
+    let lat, lon, name;
 
-    if (!geoData.results) {
+    if (cityName === "ist") {
+        name = "İstanbul";
+        lat = 41.0082;
+        lon = 28.9784;
+    } else if (cityName === "ank") {
+        name = "Ankara";
+        lat = 39.9208;
+        lon = 32.8541;
+    } else if (cityName === "izm") {
+        name = "İzmir";
+        lat = 38.4192;
+        lon = 27.1287;
+    } else {
         document.getElementById("result").textContent = "Şehir bulunamadı.";
         return;
     }
 
-    const { latitude, longitude } = geoData.results[0];
-
-    // 2) Weather API
+    // Weather API
     const weatherRes = await fetch(
-        `https://api.open-meteo.com/v1/forecast?latitude=${latitude}&longitude=${longitude}&current_weather=true`
+        `https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lon}&current_weather=true`
     );
     const weatherData = await weatherRes.json();
 
-    document.getElementById("result").textContent = JSON.stringify(weatherData, null, 2);
+    document.getElementById("result").textContent =
+        `${name}:\n${JSON.stringify(weatherData.current_weather, null, 2)}`;
 }
+
