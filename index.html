@@ -5,6 +5,63 @@
     <title>Weather API Demo</title>
 </head>
 <body>
+    <style>
+  body {
+    font-family: "Segoe UI", Roboto, sans-serif;
+    background: linear-gradient(135deg, #74ebd5 0%, #ACB6E5 100%);
+    margin: 0;
+    padding: 40px;
+    color: #333;
+    text-align: center;
+  }
+
+  h1 {
+    color: #222;
+    margin-bottom: 20px;
+    font-size: 2rem;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.1);
+  }
+
+  label {
+    font-weight: bold;
+    margin-right: 10px;
+  }
+
+  select, button {
+    padding: 10px 15px;
+    margin: 10px 5px;
+    border: none;
+    border-radius: 6px;
+    font-size: 1rem;
+  }
+
+  select {
+    background: #fff;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  }
+
+  button {
+    background: #4CAF50;
+    color: white;
+    cursor: pointer;
+    transition: background 0.3s ease;
+  }
+
+  button:hover {
+    background: #45a049;
+  }
+
+  pre#result {
+    margin-top: 30px;
+    padding: 20px;
+    background: rgba(255,255,255,0.8);
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+    text-align: left;
+    white-space: pre-wrap;
+    font-size: 1rem;
+  }
+</style>
     <h1>Weather App (Open Meteo)</h1>
 
     <label for="city">Şehir Adı:</label>
